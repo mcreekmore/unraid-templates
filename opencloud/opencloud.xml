@@ -32,7 +32,7 @@ This container requires a first time boot to initialize, so it will stop on firs
   <Config Name="IDM_ADMIN_PASSWORD" Target="IDM_ADMIN_PASSWORD" Default="admin" Mode="" Description="If not set, a password will be auto-generated" Type="Variable" Display="always" Required="false" Mask="true">admin</Config>
   <Config Name="OC_INSECURE" Target="OC_INSECURE" Default="true" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">true</Config>
   <Config Name="PROXY_HTTP_ADDR" Target="PROXY_HTTP_ADDR" Default="0.0.0.0:9200" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">0.0.0.0:9200</Config>
-  <Config Name="OC_URL" Target="OC_URL" Default="https://localhost:9200" Mode="" Description="If you're using a reverse proxy, put your URL. (ex. https://cloud.example.com)" Type="Variable" Display="always" Required="false" Mask="false">https://YourServersIP:9200</Config>
+  <Config Name="OC_URL" Target="OC_URL" Default="https://localhost:9200" Mode="" Description="If you're using a reverse proxy, put your URL. (ex. https://cloud.example.com)" Type="Variable" Display="always" Required="false" Mask="false">https://cloud.example.com</Config>
   <Config Name="PGID" Target="PGID" Default="100" Mode="" Description="" Type="Variable" Display="advanced" Required="false" Mask="false">100</Config>
   <Config Name="PUID" Target="PUID" Default="99" Mode="" Description="" Type="Variable" Display="advanced" Required="false" Mask="false">99</Config>
 </Container>
