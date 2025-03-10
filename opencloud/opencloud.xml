@@ -17,7 +17,7 @@ This container requires a first time boot to initialize, so it will stop on firs
   <Category>Cloud: Productivity: Tools:</Category>
   <WebUI>https://[IP]:[PORT:9200]</WebUI>
   <TemplateURL/>
-  <Icon>https://avatars.githubusercontent.com/u/188916550?s=200&amp;amp;v=4</Icon>
+  <Icon>https://raw.githubusercontent.com/mcreekmore/unraid-templates/refs/heads/main/opencloud/opencloud.png</Icon>
   <ExtraParams/>
   <PostArgs>init</PostArgs>
   <CPUset/>
