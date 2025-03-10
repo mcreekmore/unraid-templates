@@ -11,7 +11,7 @@
   <Project>https://docs.opencloud.eu/</Project>
   <Overview>https://hub.docker.com/r/opencloudeu/opencloud-rolling/&#xD;
 &#xD;
-Ensure that the OpenCloud config and OpenCloud data directories are created before running.&#xD;
+Ensure that the OpenCloud config and OpenCloud data directories are created before running and that the unraid user 'nobody' has read/write access.&#xD;
 &#xD;
 This container requires a first time boot to initialize, so it will stop on first boot to establish the IDM_ADMIN_PASSWORD. Once it has stopped, remove "init" from the "Post Arguments" under the advanced view and restart the container.</Overview>
   <Category>Cloud: Productivity: Tools:</Category>
