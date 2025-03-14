@@ -21,9 +21,6 @@ This container requires a first time boot to initialize, so it will stop on firs
   <ExtraParams/>
   <PostArgs>init</PostArgs>
   <CPUset/>
-  <DateInstalled>1741628766</DateInstalled>
-  <DonateText/>
-  <DonateLink/>
   <Requires/>
   <Config Name="Container Port 1" Target="9200" Default="9200" Mode="tcp" Description="" Type="Port" Display="always" Required="false" Mask="false">9200</Config>
   <Config Name="OpenCloud config" Target="/etc/opencloud" Default="/mnt/user/appdata/opencloud" Mode="rw" Description="" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/opencloud</Config>
