@@ -22,5 +22,5 @@ Copy the example config: https://github.com/RafhaanShah/Reddit-Post-Notifier/blo
   <Requires/>
   <Config Name="Path: /app/config.yaml" Target="/app/config.yaml" Default="/mnt/user/appdata/reddit-post-notifier/config.yaml" Mode="rw" Description="" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/reddit-post-notifier/config.yaml</Config>
   <Config Name="RPN_CONFIG" Target="RPN_CONFIG" Default="config.yaml" Mode="" Description="RPN_CONFIG environment variable can be used to change the location of the config file, the default is config.yaml relative to where app.py is, app/config.yaml in the Docker image." Type="Variable" Display="advanced" Required="false" Mask="false">config.yaml</Config>
-  <Config Name="RPN_LOGGING" Target="RPN_LOGGING" Default="FALSE" Mode="" Description="RPN_LOGGING environment variable can be set to TRUE to enable logging each matched post to the console as well." Type="Variable" Display="advanced" Required="false" Mask="false">TRUE</Config>
+  <Config Name="RPN_LOGGING" Target="RPN_LOGGING" Default="FALSE" Mode="" Description="RPN_LOGGING environment variable can be set to TRUE to enable logging each matched post to the console as well." Type="Variable" Display="advanced" Required="false" Mask="false">FALSE</Config>
 </Container>
