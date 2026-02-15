@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>teamspeak6-server</Name>
+  <Repository>teamspeaksystems/teamspeak6-server:latest</Repository>
+  <Registry>https://hub.docker.com/r/teamspeaksystems/teamspeak6-server</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>bash</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://community.teamspeak.com/c/teamspeak-6-server/45</Support>
+  <Project>https://github.com/teamspeak/teamspeak6-server</Project>
+  <Overview>TeamSpeak 6 Server Beta - The next generation of TeamSpeak voice communication server. Includes a 32-slot Beta License that is renewed every two months during the beta period. Supports voice communication for gaming, education, business, and personal use with high security standards and excellent voice quality.&#xD;&#xD;If container fails to start due to permission errors, run: chmod 777 /mnt/user/appdata/teamspeak6-server/ -R</Overview>
+  <Category>Network:VoIP</Category>
+  <WebUI/>
+  <TemplateURL/>
+  <Icon>https://raw.githubusercontent.com/teamspeak/teamspeak6-server/refs/heads/main/icons/teamspeak_blue.svg</Icon>
+  <PostArgs/>
+  <CPUset/>
+  <Requires/>
+  <Config Name="Server Data" Target="/var/tsserver" Default="/mnt/user/appdata/teamspeak6-server" Mode="rw" Description="Directory for TeamSpeak 6 server data including database, logs, and configuration files. If container fails to start due to permission errors, run: chmod 777 /mnt/user/appdata/teamspeak6-server/ -R" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/teamspeak6-server</Config>
+  <Config Name="Voice Port" Target="9987" Default="9987" Mode="udp" Description="UDP port for voice communication (default: 9987)." Type="Port" Display="always" Required="true" Mask="false">9987</Config>
+  <Config Name="File Transfer Port" Target="30033" Default="30033" Mode="tcp" Description="TCP port for file transfers (default: 30033)." Type="Port" Display="always" Required="true" Mask="false">30033</Config>
+  <Config Name="TSSERVER_LICENSE_ACCEPTED" Target="TSSERVER_LICENSE_ACCEPTED" Default="accept" Mode="" Description="Must be set to 'accept' to accept the TeamSpeak license agreement." Type="Variable" Display="always" Required="true" Mask="false">accept</Config>
+  <Config Name="Web Query Port" Target="10080" Default="" Mode="tcp" Description="TCP port for Web Query API (optional). Leave empty to disable." Type="Port" Display="advanced" Required="false" Mask="false"></Config>
+  <Config Name="TSSERVER_DEFAULT_PORT" Target="TSSERVER_DEFAULT_PORT" Default="9987" Mode="" Description="Default voice port for the first virtual server." Type="Variable" Display="advanced" Required="false" Mask="false">9987</Config>
+  <Config Name="TSSERVER_FILE_TRANSFER_PORT" Target="TSSERVER_FILE_TRANSFER_PORT" Default="30033" Mode="" Description="TCP port for file transfers." Type="Variable" Display="advanced" Required="false" Mask="false">30033</Config>
+  <Config Name="TSSERVER_QUERY_HTTP_ENABLED" Target="TSSERVER_QUERY_HTTP_ENABLED" Default="" Mode="" Description="Set to 1 to enable HTTP Web Query interface." Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
+  <Config Name="TSSERVER_QUERY_HTTP_PORT" Target="TSSERVER_QUERY_HTTP_PORT" Default="10080" Mode="" Description="Port for HTTP Web Query interface." Type="Variable" Display="advanced" Required="false" Mask="false">10080</Config>
+  <Config Name="PUID" Target="PUID" Default="99" Mode="" Description="User ID for the container process." Type="Variable" Display="advanced" Required="false" Mask="false">99</Config>
+  <Config Name="PGID" Target="PGID" Default="100" Mode="" Description="Group ID for the container process." Type="Variable" Display="advanced" Required="false" Mask="false">100</Config>
+</Container>
