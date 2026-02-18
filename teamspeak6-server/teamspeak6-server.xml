@@ -13,7 +13,7 @@
   <Category>Network:VoIP</Category>
   <WebUI/>
   <TemplateURL/>
-  <Icon>https://raw.githubusercontent.com/teamspeak/teamspeak6-server/refs/heads/main/icons/teamspeak_blue.svg</Icon>
+  <Icon>https://raw.githubusercontent.com/mcreekmore/unraid-templates/refs/heads/main/teamspeak6-server/teamspeak_blue.png</Icon>
   <PostArgs/>
   <CPUset/>
   <Requires/>
