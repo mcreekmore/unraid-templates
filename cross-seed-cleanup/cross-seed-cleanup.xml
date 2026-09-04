@@ -19,6 +19,7 @@
   <CPUset/>
   <Requires/>
   <Config Name="/data" Target="/data" Default="/mnt/user/data" Mode="ro" Description="Path to your torrent data. Must match the paths qBittorrent uses." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/data</Config>
+  <Config Name="Logs" Target="/logs" Default="/mnt/user/appdata/cross-seed-cleanup" Mode="rw" Description="Host folder where log files are stored. The LOG_FILE path must point inside the container's /logs directory for logs to persist here." Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/cross-seed-cleanup</Config>
   <Config Name="QB_HOST" Target="QB_HOST" Default="localhost" Mode="{3}" Description="qBittorrent Web UI host (IP or hostname)." Type="Variable" Display="always" Required="true" Mask="false">localhost</Config>
   <Config Name="QB_PORT" Target="QB_PORT" Default="8080" Mode="{3}" Description="qBittorrent Web UI port." Type="Variable" Display="always" Required="true" Mask="false">8080</Config>
   <Config Name="QB_USERNAME" Target="QB_USERNAME" Default="admin" Mode="{3}" Description="qBittorrent Web UI username." Type="Variable" Display="always" Required="true" Mask="false">admin</Config>
@@ -32,4 +33,6 @@
   <Config Name="SCHEDULE" Target="SCHEDULE" Default="" Mode="{3}" Description="Cron expression for scheduled runs (e.g. '0 */6 * * *' for every 6 hours). If empty, runs once and exits." Type="Variable" Display="always" Required="false" Mask="false"></Config>
   <Config Name="RUN_ON_START" Target="RUN_ON_START" Default="true" Mode="{3}" Description="Run immediately on container start before entering the cron schedule. Only applies when SCHEDULE is set." Type="Variable" Display="always" Required="false" Mask="false">true</Config>
   <Config Name="DRY_RUN" Target="DRY_RUN" Default="true" Mode="{3}" Description="Set to false to actually apply tags. When true, only reports what would be tagged." Type="Variable" Display="always" Required="false" Mask="false">true</Config>
+  <Config Name="LOG_LEVEL" Target="LOG_LEVEL" Default="info" Mode="{3}" Description="Logging verbosity: debug, info, warn, or error." Type="Variable" Display="always" Required="false" Mask="false">info</Config>
+  <Config Name="LOG_FILE" Target="LOG_FILE" Default="/logs/cross-seed-cleanup.log" Mode="{3}" Description="Container path to also write logs to. Keep it under /logs so logs persist to the mapped host folder. Leave empty for stdout only." Type="Variable" Display="advanced" Required="false" Mask="false">/logs/cross-seed-cleanup.log</Config>
 </Container>
