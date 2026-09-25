@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>tempo</Name>
+  <Repository>grafana/tempo:latest</Repository>
+  <Registry>https://hub.docker.com/r/grafana/tempo</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/grafana/tempo/issues</Support>
+  <Project>https://grafana.com/oss/tempo/</Project>
+  <Overview>Grafana Tempo, an open source, easy-to-use, and high-scale distributed tracing backend.&#xD;
+&#xD;
+This all-in-one configuration runs the distributor, ingester, and querier components in a single process, accepting traces via OTLP (gRPC/HTTP) and storing them on local disk. Query traces through Grafana by adding Tempo as a data source pointed at this container's HTTP API port.&#xD;
+&#xD;
+A tempo.yaml configuration file must exist at the mapped config path before starting the container.&#xD;
+&#xD;
+https://grafana.com/oss/tempo/</Overview>
+  <Description>Grafana Tempo all-in-one: distributor, ingester, and querier running as a single process. Accepts traces via OTLP (gRPC/HTTP) and persists them to local disk storage. Designed to be queried through Grafana rather than a standalone UI.</Description>
+  <Category>Tools:</Category>
+  <WebUI/>
+  <TemplateURL>https://raw.githubusercontent.com/mcreekmore/unraid-templates/refs/heads/main/tempo/tempo.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/selfhst/icons/main/png/grafana-tempo.png</Icon>
+  <ExtraParams/>
+  <PostArgs>-target=all -config.file=/etc/tempo.yaml</PostArgs>
+  <CPUset/>
+  <Requires/>
+  <Config Name="Config File" Target="/etc/tempo.yaml" Default="/mnt/user/appdata/tempo/tempo.yaml" Mode="rw" Description="Path to the tempo.yaml configuration file. Must exist before starting the container." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/tempo/tempo.yaml</Config>
+  <Config Name="Data" Target="/var/tempo" Default="/mnt/user/appdata/tempo/data" Mode="rw" Description="Storage location for ingested trace data." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/tempo/data</Config>
+  <Config Name="Container Port 1" Target="3200" Default="3200" Mode="tcp" Description="Tempo HTTP API / query endpoint, used by Grafana as a data source." Type="Port" Display="always" Required="true" Mask="false">3200</Config>
+  <Config Name="Container Port 2" Target="4317" Default="4317" Mode="tcp" Description="OTLP gRPC receiver for ingesting trace data from OpenTelemetry SDKs." Type="Port" Display="always" Required="false" Mask="false">4317</Config>
+  <Config Name="Container Port 3" Target="4318" Default="4318" Mode="tcp" Description="OTLP HTTP receiver for ingesting trace data from OpenTelemetry SDKs." Type="Port" Display="always" Required="false" Mask="false">4318</Config>
+  <Config Name="OTEL_EXPORTER_OTLP_ENDPOINT" Target="OTEL_EXPORTER_OTLP_ENDPOINT" Default="" Mode="" Description="Optional OTLP endpoint for Tempo to export its own internal telemetry to, e.g. http://alloy:4318 if running an Alloy or OTel Collector instance. Leave blank to disable." Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
+</Container>
