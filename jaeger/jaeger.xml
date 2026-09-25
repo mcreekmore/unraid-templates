@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <Container version="2">
   <Name>jaeger</Name>
-  <Repository>cr.jaegertracing.io/jaegertracing/jaeger:2.21.0</Repository>
+  <Repository>cr.jaegertracing.io/jaegertracing/jaeger:latest</Repository>
   <Registry>https://cr.jaegertracing.io</Registry>
   <Network>bridge</Network>
   <MyIP/>
