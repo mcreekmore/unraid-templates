@@ -2,7 +2,7 @@
 <Container version="2">
   <Name>jaeger</Name>
   <Repository>cr.jaegertracing.io/jaegertracing/jaeger:2.21.0</Repository>
-  <Registry>https://www.jaegertracing.io/docs/latest/getting-started/</Registry>
+  <Registry>https://cr.jaegertracing.io</Registry>
   <Network>bridge</Network>
   <MyIP/>
   <Shell>sh</Shell>
@@ -14,9 +14,10 @@
 This all-in-one configuration combines the collector, query, and UI components in a single process, using transient in-memory storage for trace data.&#xD;
 &#xD;
 https://www.jaegertracing.io/</Overview>
+  <Description>Jaeger v2 all-in-one: collector, query service, and web UI running as a single process based on the OpenTelemetry Collector. Accepts traces via OTLP (gRPC/HTTP) or the Zipkin-compatible endpoint and stores them in transient in-memory storage, so traces do not persist across container restarts. Ideal for local development, testing OpenTelemetry instrumentation, or short-lived tracing sessions.</Description>
   <Category>Tools:</Category>
   <WebUI>http://[IP]:[PORT:16686]</WebUI>
-  <TemplateURL/>
+  <TemplateURL>https://raw.githubusercontent.com/mcreekmore/unraid-templates/refs/heads/main/jaeger/jaeger.xml</TemplateURL>
   <Icon>https://raw.githubusercontent.com/mcreekmore/unraid-templates/refs/heads/main/jaeger/jaeger.png</Icon>
   <ExtraParams/>
   <PostArgs/>
