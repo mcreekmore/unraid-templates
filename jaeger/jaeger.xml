@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>jaeger</Name>
+  <Repository>cr.jaegertracing.io/jaegertracing/jaeger:2.21.0</Repository>
+  <Registry>https://www.jaegertracing.io/docs/latest/getting-started/</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/jaegertracing/jaeger/issues</Support>
+  <Project>https://www.jaegertracing.io/</Project>
+  <Overview>Jaeger v2, an open source, end-to-end distributed tracing platform based on OpenTelemetry Collector.&#xD;
+&#xD;
+This all-in-one configuration combines the collector, query, and UI components in a single process, using transient in-memory storage for trace data.&#xD;
+&#xD;
+https://www.jaegertracing.io/</Overview>
+  <Category>Tools:</Category>
+  <WebUI>http://[IP]:[PORT:16686]</WebUI>
+  <TemplateURL/>
+  <Icon>https://raw.githubusercontent.com/mcreekmore/unraid-templates/refs/heads/main/jaeger/jaeger.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <Requires/>
+  <Config Name="Container Port 1" Target="16686" Default="16686" Mode="tcp" Description="Jaeger UI and query API for viewing traces." Type="Port" Display="always" Required="true" Mask="false">16686</Config>
+  <Config Name="Container Port 2" Target="4317" Default="4317" Mode="tcp" Description="OTLP gRPC receiver for ingesting trace data from OpenTelemetry SDKs." Type="Port" Display="always" Required="false" Mask="false">4317</Config>
+  <Config Name="Container Port 3" Target="4318" Default="4318" Mode="tcp" Description="OTLP HTTP receiver for ingesting trace data (Protobuf or JSON) from OpenTelemetry SDKs." Type="Port" Display="always" Required="false" Mask="false">4318</Config>
+  <Config Name="Container Port 4" Target="5778" Default="5778" Mode="tcp" Description="Serves remote sampling configuration to Jaeger clients." Type="Port" Display="always" Required="false" Mask="false">5778</Config>
+  <Config Name="Container Port 5" Target="9411" Default="9411" Mode="tcp" Description="Zipkin-compatible endpoint for accepting spans in Zipkin v1/v2 format." Type="Port" Display="always" Required="false" Mask="false">9411</Config>
+</Container>
