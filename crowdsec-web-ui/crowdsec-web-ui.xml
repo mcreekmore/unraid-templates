@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>crowdsec-web-ui</Name>
+  <Repository>ghcr.io/theduffman85/crowdsec-web-ui:latest</Repository>
+  <Registry>https://github.com/users/TheDuffman85/packages/container/package/crowdsec-web-ui</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>bash</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/TheDuffman85/crowdsec-web-ui/issues</Support>
+  <Project>https://github.com/TheDuffman85/crowdsec-web-ui</Project>
+  <Overview>CrowdSec Web UI, a self-hosted dashboard for CrowdSec: investigate alerts, manage decisions, monitor runtime metrics, and send notifications from one responsive UI.&#xD;
+&#xD;
+The UI connects to the CrowdSec Local API (LAPI) as a watcher machine. Register it on your CrowdSec container before starting this one, using a strong password (e.g. from openssl rand -hex 32):&#xD;
+docker exec crowdsec cscli machines add crowdsec-web-ui --password 'your-password' -f /dev/null&#xD;
+Keep -f /dev/null so the CrowdSec container's own credentials file is not overwritten.&#xD;
+&#xD;
+Set the LAPI URL to an address reachable from this container: http://crowdsec:8080 when both containers share a custom Docker network, or http://[UNRAID-IP]:8080 otherwise. On first visit, create the initial administrator account.&#xD;
+&#xD;
+Alert deletion additionally requires this container's IP or Docker network CIDR to be listed under api.server.trusted_ips in CrowdSec's config.yaml; without it, deletes fail with 403 Forbidden.&#xD;
+&#xD;
+A config.yaml with all advanced options (OIDC, notifications, multiple instances, sync settings) is generated in the data directory on first start.&#xD;
+&#xD;
+https://github.com/TheDuffman85/crowdsec-web-ui</Overview>
+  <Description>Self-hosted dashboard for CrowdSec: investigate alerts, manage decisions, monitor Prometheus runtime metrics, and send notifications (Email, Gotify, MQTT, ntfy, Webhooks). Supports multiple CrowdSec instances, local accounts with TOTP and passkeys, and OIDC SSO. Connects to the CrowdSec Local API (LAPI) as a registered watcher machine.</Description>
+  <Category>Security: Tools:</Category>
+  <WebUI>http://[IP]:[PORT:3000]</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/mcreekmore/unraid-templates/refs/heads/main/crowdsec-web-ui/crowdsec-web-ui.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/mcreekmore/unraid-templates/refs/heads/main/crowdsec-web-ui/crowdsec-web-ui.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <Requires>A running CrowdSec instance with a machine registered for this UI (cscli machines add).</Requires>
+  <Config Name="Container Port 1" Target="3000" Default="3000" Mode="tcp" Description="CrowdSec Web UI (HTTP). Use a reverse proxy for HTTPS; passkeys require HTTPS." Type="Port" Display="always" Required="true" Mask="false">3000</Config>
+  <Config Name="Data" Target="/app/data" Default="/mnt/user/appdata/crowdsec-web-ui" Mode="rw" Description="SQLite database, alert history cache, and the generated config.yaml." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/crowdsec-web-ui</Config>
+  <Config Name="CONFIG_INSTANCE_LAPI_URL" Target="CONFIG_INSTANCE_LAPI_URL" Default="http://crowdsec:8080" Mode="" Description="CrowdSec LAPI base URL (no path), e.g. http://crowdsec:8080 on a shared custom network or http://[UNRAID-IP]:8080." Type="Variable" Display="always" Required="true" Mask="false">http://crowdsec:8080</Config>
+  <Config Name="CONFIG_INSTANCE_LAPI_AUTH_USERNAME" Target="CONFIG_INSTANCE_LAPI_AUTH_USERNAME" Default="crowdsec-web-ui" Mode="" Description="Machine name registered on CrowdSec via cscli machines add." Type="Variable" Display="always" Required="true" Mask="false">crowdsec-web-ui</Config>
+  <Config Name="CONFIG_INSTANCE_LAPI_AUTH_PASSWORD" Target="CONFIG_INSTANCE_LAPI_AUTH_PASSWORD" Default="" Mode="" Description="Password used when registering the machine with cscli machines add." Type="Variable" Display="always" Required="true" Mask="true"></Config>
+  <Config Name="CONFIG_INSTANCE_NAME" Target="CONFIG_INSTANCE_NAME" Default="" Mode="" Description="Optional display name for this CrowdSec instance. Defaults to Instance 0." Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
+  <Config Name="CONFIG_INSTANCE_METRICS_URL" Target="CONFIG_INSTANCE_METRICS_URL" Default="" Mode="" Description="Optional CrowdSec Prometheus endpoint for the Metrics page, e.g. http://crowdsec:6060/metrics. CrowdSec must listen on 0.0.0.0 with prometheus level: full." Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
+  <Config Name="CONFIG_SERVER_BASE_PATH" Target="CONFIG_SERVER_BASE_PATH" Default="" Mode="" Description="Optional URL prefix when served under a reverse proxy subpath, e.g. /crowdsec (no trailing slash)." Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
+  <Config Name="CONFIG_UI_TIME_ZONE" Target="CONFIG_UI_TIME_ZONE" Default="browser" Mode="" Description="Timezone for displayed dates: browser, or an IANA zone such as America/New_York or UTC." Type="Variable" Display="advanced" Required="false" Mask="false">browser</Config>
+  <Config Name="CONFIG_UI_READ_ONLY" Target="CONFIG_UI_READ_ONLY" Default="false" Mode="" Description="Set to true to hide management actions and reject all write operations for every user." Type="Variable" Display="advanced" Required="false" Mask="false">false</Config>
+</Container>
